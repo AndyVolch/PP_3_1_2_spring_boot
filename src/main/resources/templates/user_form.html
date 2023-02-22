@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<h2>User Form</h2>
+<br>
+<form action="#" th:action="@{/saveUser}" th:object="${user}">
+    <input type="hidden" th:field="*{id}">
+    <label for="name">Name: </label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <br><br>
+    <label for="lastName">Surname: </label>
+    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Surname">
+    <br><br>
+    <label for="age">Age: </label>
+    <input type="text" th:field="*{age}" id="age" placeholder="Age">
+    <br><br>
+    <input type="submit" value="Save User">
+</form>
+</body>
+</html>

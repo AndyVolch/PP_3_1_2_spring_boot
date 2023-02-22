@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<h2>Users</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Age</th>
+  </tr>
+  <tr th:each="user : ${allUsers}" th:attr="id=${user.id}">
+    <td th:text="${user.name}"></td>
+    <td th:text="${user.lastName}"></td>
+    <td th:text="${user.age}"></td>
+    <td>
+      <script>
+        function updateUser(button) {
+          const row = button.closest("tr");
+          const userId = row.getAttribute("id");
+          window.location = "/updateUser?UserID=" + userId;
+        }
+      </script>
+      <input type="button" value="Update"
+             onclick="updateUser(this)">
+      <script>
+        function deleteUser(button) {
+          const row = button.closest("tr");
+          const userId = row.getAttribute("id");
+          window.location = "/deleteUser?UserID=" + userId;
+        }
+      </script>
+      <input type="button" value="Delete"
+             onclick="deleteUser(this)">
+    </td>
+  </tr>
+</table>
+<input type="button" value="Add User"
+onclick="window.location.href='addUser'">
+</body>
+</html>
